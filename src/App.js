@@ -1,30 +1,27 @@
-import React from "react";
-import UseAsyncDemo from "./UseAsyncDemo";
-import UseEventListenerDemo from "./UseEventListenerDemo";
-import UseStorageDemo from "./UseStorageDemo";
+import React, { useRef, useState } from "react";
+import { useArray } from "./hooks";
 import "./styles.css";
 
-function App() {
+const App = () => {
+  const { add, clear, removeById, value: animals } = useArray([
+    { id: "cat", name: "cat" },
+    { id: "dog", name: "dog" },
+    { id: "bird", name: "bird" }
+  ]);
+
   return (
-    <div className="App">
-      <h2>UseAsyncDemo</h2>
-      <UseAsyncDemo />
-      <hr />
-      <br />
-      <br />
-      <h2>UseEventListenerDemo</h2>
+    <>
+      <button onClick={() => add("tiger")}>Add animal</button>
+      <button onClick={() => removeById("dog")}>Remove Dog</button>
+      <button onClick={clear}>clear</button>
 
-      <UseEventListenerDemo />
-      <hr />
-      <br />
-      <br />
-
-      <UseStorageDemo />
-      <hr />
-      <br />
-      <br />
-    </div>
+      <ul>
+        {animals.map((animal) => (
+          <li key={animal.id}>{animal.name}</li>
+        ))}
+      </ul>
+    </>
   );
-}
+};
 
 export default App;
