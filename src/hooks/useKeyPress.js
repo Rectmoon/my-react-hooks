@@ -23,11 +23,11 @@ export function useKeyPress(targetKey) {
 export function useMultiKeyPress() {
   const [keysPressed, setKeyPressed] = useState(() => new Set([]));
   const handleKeyDown = ({ key }) => {
-    setKeyPressed(keysPressed.add(key));
+    setKeyPressed(new Set([...keysPressed.add(key)]));
   };
   const handleKeyUp = ({ key }) => {
     keysPressed.delete(key);
-    setKeyPressed(keysPressed);
+    setKeyPressed(new Set([...keysPressed]));
   };
 
   useEventListener("keydown", handleKeyDown);
