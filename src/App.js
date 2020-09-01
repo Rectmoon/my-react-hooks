@@ -1,13 +1,16 @@
-import React, { useState } from "react";
-import { useOnlineStatus } from "./hooks";
+import React from "react";
+import { useMultiKeyPress } from "./hooks";
 import "./styles.css";
 
 function App() {
-  const onlineStatus = useOnlineStatus();
+  const keysPressed = useMultiKeyPress();
 
   return (
     <div>
-      <h1>You are {onlineStatus ? "Online" : "Offline"}</h1>
+      <h1>hello</h1>
+      {[...keysPressed].map((key) => (
+        <p key={key}>{`${key} key pressed`}</p>
+      ))}
     </div>
   );
 }
