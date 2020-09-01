@@ -9,5 +9,7 @@ export { default as usePrevious } from "./usePrevious";
 export { default as useOnlineStatus } from "./useOnlineStatus";
 export { default as useInterval } from "./useInterval";
 export { default as useWindowSize } from "./useWindowSize";
+export { default as useWhyDidYouUpdate } from "./useWhyDidYouUpdate";
+export { default as useScript } from "./useScript";
 export { useKeyPress, useMultiKeyPress } from "./useKeyPress";
 export { useLocalStorage, useSessionStorage } from "./useStorage";
