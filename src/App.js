@@ -1,25 +1,17 @@
-import React, { useRef, useState } from "react";
-import { useArray } from "./hooks";
+import React, { useState } from "react";
+import { usePrevious } from "./hooks";
 import "./styles.css";
 
 const App = () => {
-  const { add, clear, removeById, value: animals } = useArray([
-    { id: "cat", name: "cat" },
-    { id: "dog", name: "dog" },
-    { id: "bird", name: "bird" }
-  ]);
+  const [count, setCount] = useState(0);
+  const prevCount = usePrevious(count);
 
   return (
     <>
-      <button onClick={() => add("tiger")}>Add animal</button>
-      <button onClick={() => removeById("dog")}>Remove Dog</button>
-      <button onClick={clear}>clear</button>
-
-      <ul>
-        {animals.map((animal) => (
-          <li key={animal.id}>{animal.name}</li>
-        ))}
-      </ul>
+      <h1>
+        Now: {count}, before: {prevCount}
+      </h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
     </>
   );
 };
