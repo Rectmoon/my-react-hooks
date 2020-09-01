@@ -6,4 +6,5 @@ export { default as useCopyToClipboard } from "./useCopyToClipboard";
 export { default as useHover } from "./useHover";
 export { default as useArray } from "./useArray";
 export { default as usePrevious } from "./usePrevious";
+export { default as useOnlineStatus } from "./useOnlineStatus";
 export { useLocalStorage, useSessionStorage } from "./useStorage";
